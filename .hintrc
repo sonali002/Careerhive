@@ -1,0 +1,70 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "no-inline-styles": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off",
+        "button-name": "off"
+      }
+    ],
+    "button-type": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off"
+      }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust",
+          "-webkit-text-size-adjust"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 126",
+    "not firefox <= 127",
+    "not safari <= 17.5"
+  ]
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Hive Feedback Form</title>
+    
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+section {
+    background-color: #f7f7f7;
+    padding: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #444;
+}
+
+.faq-questions {
+    margin-top: 2em;
+}
+
+.faq-question {
+    margin-bottom: 2em;
+}
+
+.faq-answer {
+    margin-left: 2em;
+}
+
+.result {
+    margin-top: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+    </style>
+    <nav>
+        <a href="#feedback-form">Feedback Form</a>
+        <a href="#faq">Frequently Asked Questions</a>
+    </nav>
+    <main>
+        <section id="feedback-form">
+            <h2>Feedback Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-questions"></div>
+        </section>
+        <div class="result"></div>
+    </main>
+    <script>
+        // Add event listeners to navigation links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        const sectionId = link.getAttribute('href').replace('#', '');
+        document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// FAQ questions and answers
+const faqQuestions = [
+    {
+        question: "What is Career Hive?",
+        answer: "Career Hive is a platform that connects job seekers with employers."
+    },
+    {
+        question: "How do I create an account?",
+        answer: "To create an account, click on the 'Sign Up' button and follow the registration process."
+    },
+    {
+        question: "What types of jobs are available on Career Hive?",
+        answer: "We have a wide range of jobs available, including full-time, part-time, freelance, and internship opportunities."
+    }
+];
+
+// Function to render FAQ questions and answers
+function renderFAQ(questions) {
+    const faqContainer = document.querySelector('.faq-questions');
+    questions.forEach((question, index) => {
+        const faqHTML = `
+            <div class="faq-question">
+                <h3>${question.question}</h3>
+                <p class="faq-answer">${question.answer}</p>
+            </div>
+        `;
+        faqContainer.innerHTML += faqHTML;
+    });
+}
+
+// Render FAQ questions and answers
+renderFAQ(faqQuestions);
+
+//
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #050237;
+    }
+    h2{
+      color:white;
+      font-variant: small-caps;
+      margin: 30px;
+
+    }
+    
+    
+    .container {
+      position: absolute; /* added absolute positioning */
+      top: 50%; /* moved to 50% from the top */
+      left: 50%; /* moved to 50% from the left */
+      transform: translate(-50%, -50%); /* adjusted for centering */
+      max-width: 400px;
+      height: 400px;
+      box-shadow: 0 0 10px rgb(252, 251, 251);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-control {
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* added box shadow effect */
+    }
+    
+    #login-btn {
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #337ab7;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* added box shadow effect */
+    }
+    
+    #login-btn:hover {
+      background-color: #23527c;
+    }
+    
+    .animated {
+      animation-duration: 1s;
+    }
+    
+    .fadeIn {
+      animation-name: fadeIn;
+    }
+    
+    .pulse {
+      animation-name: pulse;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .shadow {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+    <div class="container animated fadeIn">
+      <form>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
+          <input type="text" class="form-control shadow" id="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control shadow" id="password" placeholder="Password" required>
+        </div>
+        <button class="btn btn-primary btn-block pulse" id="login-btn">Login</button><br><br>
+        <p class="text-center">Don't have an account? <a href="register.html">Register</a></p>
+      </form>
+    </div>
+
+  <!-- Animations and effects -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    $(document).ready(function() {
+      // Add an event listener to the login button
+      $('#login-btn').click(function(event) {
+        event.preventDefault(); // prevent the default form submission
+
+        // Get the username and password from the input fields
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        // Perform a simple validation (you should use a more secure validation method in a real-world scenario)
+        if (username && password) {
+          // Simulate a successful login (replace with your actual login logic)
+          console.log('Login successful!');
+
+          // Redirect to the dashboard page
+          window.location.href = 'dashboard.html';
+        } else {
+          console.log('Invalid username or password');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

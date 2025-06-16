@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Career Fair - Career Hive</title>
+    
+</head>
+<body>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.fair-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booth-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.booth {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booth:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.chat-section {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.chat-header {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-messages {
+    padding: 20px;
+}
+
+.chat-input {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#chat-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+#send-chat {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#send-chat:hover {
+    background-color: #3e8e41;
+}
+.chat-message {
+    margin-bottom: 20px;
+}
+
+.chat-message p {
+    font-size: 14px;
+    color: #666;
+}
+
+.exhibitor-response {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.exhibitor-response p {
+    font-size: 14px;
+    color: #333;
+}
+    </style>
+    <header>
+        <h1>Virtual Career Fair - Career Hive</h1>
+    </header>
+    <main>
+        <section class="fair-section">
+            <h2>Exhibitor Booths</h2>
+            <div class="booth-grid">
+                <!-- exhibitor booths will be generated dynamically using JavaScript -->
+            </div>
+        </section>
+        <section class="chat-section">
+            <h2>Live Chat</h2>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3>Chat with Exhibitors</h3>
+                </div>
+                <div class="chat-messages">
+                    <!-- chat messages will be generated dynamically using JavaScript -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Type a message...">
+                    <button id="send-chat">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // script.js
+// generate exhibitor booths dynamically
+const exhibitors = [
+    { name: 'Exhibitor 1', logo: 'https://via.placeholder.com/150', description: 'This is exhibitor 1.' },
+    { name: 'Exhibitor 2', logo: 'https://via.placeholder.com/150', description: 'This is exhibitor 2.' },
+    { name: 'Exhibitor 3', logo: 'https://via.placeholder.com/150', description: 'This is exhibitor 3.' },
+];
+
+const boothGrid = document.querySelector('.booth-grid');
+
+exhibitors.forEach((exhibitor) => {
+    const boothHTML = `
+        <div class="booth">
+            <img src="${exhibitor.logo}" alt="${exhibitor.name} logo">
+            <h3>${exhibitor.name}</h3>
+            <p>${exhibitor.description}</p>
+            <button class="chat-button">Chat with ${exhibitor.name}</button>
+        </div>
+    `;
+    boothGrid.innerHTML += boothHTML;
+});
+
+// add event listener to chat buttons
+const chatButtons = document.querySelectorAll('.chat-button');
+const chatContainer = document.querySelector('.chat-container');
+const chatHeader = document.querySelector('.chat-header');
+const chatMessages = document.querySelector('.chat-messages');
+const chatInput = document.querySelector('.chat-input');
+const sendChatButton = document.querySelector('.send-chat-button');
+
+chatButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        const exhibitorName = e.target.textContent.replace('Chat with ', '');
+        chatHeader.innerHTML = `
+            <h3>Chat with ${exhibitorName}</h3>
+        `;
+        chatContainer.style.display = 'block';
+        chatInput.focus();
+    });
+});
+
+// add event listener to send chat button
+sendChatButton.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (message !== '') {
+        const chatMessageHTML = `
+            <div class="chat-message">
+                               <p>${message}</p>
+            </div>
+        `;
+        chatMessages.innerHTML += chatMessageHTML;
+        chatInput.value = '';
+
+        // simulate exhibitor response
+        setTimeout(() => {
+            const exhibitorResponse = `
+                <div class="chat-message exhibitor-response">
+                    <p>Hi there! I'm ${exhibitorName}. How can I help you today?</p>
+                </div>
+            `;
+            chatMessages.innerHTML += exhibitorResponse;
+        }, 1000);
+    } else {
+        console.error('Error: Chat message is empty.');
+    }
+});
+
+// add event listener to close chat button
+const closeChatButton = document.querySelector('.close-chat-button');
+closeChatButton.addEventListener('click', () => {
+    chatContainer.style.display = 'none';
+});
+    </script>
+</body>
+</html>

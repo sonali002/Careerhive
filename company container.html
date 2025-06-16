@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>company module</title>
+    
+</head>
+<body>
+<style>
+/* style.css */
+
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+    background-color:#4c92fc ;
+  }
+  
+  header {
+    background-color: #0066ff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  nav {
+    background-color:#232236;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  nav a:hover {
+    color: #ccc;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    width: 30%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  section h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #444;
+  }
+  
+  button:active {
+    background-color: #555;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Job Postings */
+  
+  #job-postings {
+    background-color: #f7f7f7;
+  }
+  
+  #job-postings-list {
+    padding: 20px;
+  }
+  
+  #post-job {
+    margin-top: 20px;
+  }
+  
+  /* Talent Pool */
+  
+  #talent-pool {
+    background-color: #f2f2f2;
+  }
+  
+  #talent-pool-list {
+    padding: 20px;
+  }
+  
+  #add-candidate {
+    margin-top: 20px;
+  }
+  
+  /* Application Management */
+  
+  #application-management {
+    background-color: #e7e7e7;
+  }
+  
+  #application-management-list {
+    padding: 20px;
+  }
+  
+  #apply {
+    margin-top: 20px;
+  }
+  
+  /* Interview Scheduling */
+  
+  #interview-scheduling {
+    background-color: #d7d7d7;
+  }
+  
+  #interview-scheduling-list {
+    padding: 20px;
+  }
+  
+  #schedule-interview {
+    margin-top: 20px;
+  }
+  
+  /* Analytics */
+  
+  #analytics {
+    background-color: #c7c7c7;
+  }
+  
+  #analytics-list {
+    padding: 20px;
+  }
+  
+  /* Hover Effects */
+  
+  section:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Shadow Effects */
+  
+  section {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }</style>
+    <header>
+        <h1>company module</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#job-postings">Job Postings</a></li>
+            <li><a href="#talent-pool">Talent Pool</a></li>
+            <li><a href="#application-management">Application Management</a></li>
+            <li><a href="#interview-scheduling">Interview Scheduling</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="job-postings">
+            <h2>Job Postings</h2>
+            <ul id="job-postings-list"></ul>
+            <button id="post-job">Post a Job</button>
+        </section>
+        <section id="talent-pool">
+            <h2>Talent Pool</h2>
+            <ul id="talent-pool-list"></ul>
+            <button id="add-candidate">Add Candidate</button>
+        </section>
+        <section id="application-management">
+            <h2>Application Management</h2>
+            <ul id="application-management-list"></ul>
+            <button id="apply">Apply</button>
+        </section>
+        <section id="interview-scheduling">
+            <h2>Interview Scheduling</h2>
+            <ul id="interview-scheduling-list"></ul>
+            <button id="schedule-interview">Schedule Interview</button>
+        </section>
+        <section id="analytics">
+            <h2>Analytics</h2>
+            <ul id="analytics-list"></ul>
+        </section>
+    </main>
+    <script>
+// Job Postings
+const jobPostingsList = document.getElementById('job-postings-list');
+const postJobButton = document.getElementById('post-job');
+
+postJobButton.addEventListener('click', () => {
+    const jobTitle = prompt('Enter job title:');
+    const jobDescription = prompt('Enter job description:');
+    const jobPosting = {
+        title: jobTitle,
+        description: jobDescription
+    };
+    jobPostingsList.innerHTML += `
+        <li>${jobTitle}</li>
+    `;
+});
+
+// Talent Pool
+const talentPoolList = document.getElementById('talent-pool-list');
+const addCandidateButton = document.getElementById('add-candidate');
+
+addCandidateButton.addEventListener('click', () => {
+    const candidateName = prompt('Enter candidate name:');
+    const candidateEmail = prompt('Enter candidate email:');
+    const candidateResume = prompt('Enter candidate resume:');
+    const candidate = {
+        name: candidateName,
+        email: candidateEmail,
+        resume: candidateResume
+    };
+    talentPoolList.innerHTML += `
+        <li>${candidateName}</li>
+    `;
+});
+
+// Application Management
+const applicationManagementList = document.getElementById('application-management-list');
+const applyButton = document.getElementById('apply');
+
+applyButton.addEventListener('click', () => {
+    const name = prompt('Enter your name:');
+    const email = prompt('Enter your email:');
+    const resume = prompt('Enter your resume:');
+    const jobId = prompt('Enter the job ID you are applying for:');
+    apply(name, email, resume, jobId);
+    applicationManagementList.innerHTML += `
+        <li>${name} applied for job ${jobId}</li>
+    `;
+});
+
+// Interview Scheduling
+const interviewSchedulingList = document.getElementById('interview-scheduling-list');
+const scheduleInterviewButton = document.getElementById('schedule-interview');
+
+scheduleInterviewButton.addEventListener('click', () => {
+    const candidateName = prompt('Enter candidate name:');
+    const jobId = prompt('Enter job ID:');
+    const interviewDate = prompt('Enter interview date:');
+    scheduleInterview(candidateName, jobId, interviewDate);
+    interviewSchedulingList.innerHTML += `
+        <li>${candidateName} scheduled for interview on ${interviewDate} for job ${jobId}</li>
+    `;
+});
+
+// Analytics
+const analyticsList = document.getElementById('analytics-list');
+
+// Job postings
+function displayJobPostings() {
+    const jobPostings = [
+        { title: 'Job 1', description: 'Description 1' },
+        { title: 'Job 2', description: 'Description 2' },
+        { title: 'Job 3', description: 'Description 3' }
+    ];
+    jobPostingsList.innerHTML = '';
+    jobPostings.forEach((job) => {
+        jobPostingsList.innerHTML += `
+            <li>${job.title}</li>
+        `;
+    });
+}
+
+// Talent pool
+function displayTalentPool() {
+    const talentPool = [
+        { name: 'Candidate 1', email: 'candidate1@example.com', resume: 'Resume 1' },
+        { name: 'Candidate 2', email: 'candidate2@example.com', resume: 'Resume 2' },
+        { name: 'Candidate 3', email: 'candidate3@example.com', resume: 'Resume 3' }
+    ];
+    talentPoolList.innerHTML = '';
+    talentPool.forEach((candidate) => {
+        talentPoolList.innerHTML += `
+            <li>${candidate.name}</li>
+        `;
+    });
+}
+
+// Application management
+function displayApplicationManagement() {
+    const applications = [
+        { name: 'Application 1', jobId: 'Job 1' },
+        { name: 'Application 2', jobId: 'Job 2' },
+        { name: 'Application 3', jobId: 'Job 3' }
+    ];
+    applicationManagementList.innerHTML = '';
+    applications.forEach((application) => {
+        applicationManagementList.innerHTML += `
+            <li>${application.name} applied for ${application.jobId}</li>
+        `;
+    });
+}
+
+// Interview scheduling
+function displayInterviewScheduling() {
+    const interviewSchedules = [
+        { candidateName: 'Candidate 1', jobId: 'Job 1', interviewDate: '2023-02-15' },
+        { candidateName: 'Candidate 2', jobId: 'Job 2', interviewDate: '2023-02-16' },
+        { candidateName: 'Candidate 3', jobId: 'Job 3', interviewDate: '2023-02-17' }
+    ];
+    interviewSchedulingList.innerHTML = '';
+    interviewSchedules.forEach((interviewSchedule) => {
+        interviewSchedulingList.innerHTML += `
+            <li>${interviewSchedule.candidateName} scheduled for interview on ${interviewSchedule.interviewDate} for job ${interviewSchedule.jobId}</li>
+        `;
+    });
+}
+
+// Analytics
+function displayAnalytics() {
+    const analyticsData = [
+        { label: 'Job 1', value: 10 },
+        { label: 'Job 2', value: 20 },
+        { label: 'Job 3', value: 30 }
+    ];
+    analyticsList.innerHTML = '';
+    analyticsData.forEach((data) => {
+        analyticsList.innerHTML += `
+            <li>${data.label}: ${data.value}</li>
+        `;
+    });
+}
+
+displayJobPostings();
+displayTalentPool();
+displayApplicationManagement();
+displayInterviewScheduling();
+displayAnalytics();
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Score Checker</title>
+    <style>
+        /* styles.css */
+        body {
+            color:#fff;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #050237; /* updated background color */
+        }
+
+        .input-section {
+            background-color: #050237;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .output-section {
+            background-color: #050237;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        #ats-score-output {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Responsive styling */
+
+        /* For screens smaller than 768px (tablets and mobile devices) */
+        @media only screen and (max-width: 768px) {
+            .input-section, .output-section {
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+
+            input[type="file"] {
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+            #ats-score-output {
+                padding: 10px;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+
+        /* For screens smaller than 480px (small mobile devices) */
+        @media only screen and (max-width: 480px) {
+            .input-section, .output-section {
+                padding: 5px;
+                border-radius: 3px;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            }
+
+            input[type="file"] {
+                padding: 3px;
+                border-radius: 3px;
+            }
+
+            button {
+                padding: 3px 5px;
+                border-radius: 3px;
+            }
+
+            #ats-score-output {
+                padding: 5px;
+                font-size: 12px;
+                line-height: 1.1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ATS Score Checker</h1>
+    <form id="ats-form">
+        <label for="resume">Upload Your Resume:</label>
+        <input type="file" id="resume" name="resume">
+        <button id="submit-btn">Check Score</button>
+        <div id="result"></div>
+    </form>
+    <script>
+        // script.js
+        const form = document.getElementById('ats-form');
+const submitBtn = document.getElementById('submit-btn');
+const resultDiv = document.getElementById('result');
+
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const resumeFile = document.getElementById('resume').files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+        const resumeText = reader.result;
+        // TO DO: implement ATS score calculation logic here
+        const score = calculateATSScore(resumeText);
+        resultDiv.innerText = `Your ATS score is: ${score}`;
+    };
+    reader.readAsText(resumeFile);
+});
+
+function calculateATSScore(resumeText) {
+    // TO DO: implement ATS score calculation logic here
+    // For demonstration purposes, return a random score between 0 and 100
+    return Math.floor(Math.random() * 101);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Hive Guide</title>
+ 
+</head>
+<body>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+}
+
+.chat-container {
+  
+ 
+  height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.chat-body {
+  padding: 20px;
+}
+
+#chat-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#chat-log li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#user-input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+#send-btn {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #3e8e41;
+}
+    </style>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Career Hive Guide</h2>
+    </div>
+    <div class="chat-body">
+      <ul id="chat-log">
+        <!-- chat log will be displayed here -->
+      </ul>
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatLog = document.getElementById('chat-log');
+const user_input = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+let chatbotResponse = '';
+
+sendBtn.addEventListener('click', () => {
+  const userInput = user_input.value.trim();
+  if (userInput) {
+    const chatLogItem = document.createElement('li');
+    chatLogItem.textContent = `User: ${userInput}`;
+    chatLog.appendChild(chatLogItem);
+
+    switch (userInput) {
+      case 'hello':
+        chatbotResponse = 'Hello! I am CareerHive Guide. How can I assist you today? Please select one of the following options: \n 1. Job matching\n 2. Career Guidance \n 3. Resume building \n 4. interview preparation \n 5.industry trends \n 6.Company information ';
+        break;
+      case '1':
+        chatbotResponse = 'I can help you with that! What are your skills and interests? Please provide me with some details about your education, work experience, and the type of job you are looking for.Please visit our Job matching module ';
+        break;
+      case '2':
+        chatbotResponse = 'I can offer you career advice and guidance. What specific areas do you need help with? Are you looking to switch careers, or do you need help with resume building or interview preparation? Please visit our Skill assessment';
+        break;
+      case '3':
+        chatbotResponse = 'I can help you with that! Can you please visit Resume building';
+      case '4':
+        chatbotResponse = 'I can help you prepare for your interview! Please visit our interview preparation module';
+        break;
+      case '5':
+        chatbotResponse = 'I can provide you with information about industry trends! Please visit our industry trends module';
+      case '6':
+        chatbotResponse='I can provide you with information about companies! Which company would you like to know more about? Please Please visit company module in navigation bar';  
+      default:
+        chatbotResponse = 'I didn\'t understand that. Can you please rephrase?';
+    }
+
+    const chatbotLogItem = document.createElement('li');
+    chatbotLogItem.textContent = `Career Hive Guide: ${chatbotResponse}`;
+    chatLog.appendChild(chatbotLogItem);
+
+    user_input.value = '';
+  }
+});
+  </script>
+</body>
+</html>

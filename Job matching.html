@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job matching</title>
+    
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#job-search {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#job-search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#find-job-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#find-job-btn:hover {
+    background-color: #3e8e41;
+}
+
+#job-list {
+    margin-top: 20px;
+}
+
+.job-listing {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.job-listing h2 {
+    margin-top: 0;
+}
+    </style>
+    <header>
+        <h1>Job matching</h1>
+    </header>
+    <main>
+        <section id="job-search">
+            <h2>Find Your Dream Job</h2>
+            <form id="job-search-form">
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" placeholder="e.g. JavaScript, Python, HTML">
+                <label for="location">Location:</label>
+                <input type="text" id="location" placeholder="e.g. New York, London, Paris">
+                <label for="experience">Experience:</label>
+                <input type="number" id="experience" placeholder="e.g. 1, 2, 3">
+                <button id="find-job-btn">Find Job</button>
+            </form>
+            <div id="job-list"></div>
+        </section>
+    </main>
+    <script>
+        const form = document.getElementById('job-search-form');
+const jobList = document.getElementById('job-list');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const skills = document.getElementById('skills').value.split(',');
+  const location = document.getElementById('location').value;
+  const experience = parseInt(document.getElementById('experience').value);
+
+  const matchingJobs = findJobs(skills, location, experience);
+
+  const jobListings = matchingJobs.map(job => {
+    return `
+      <div class="job-listing">
+        <h2>${job.title}</h2>
+        <p>Company: ${job.company}</p>
+        <p>Location: ${job.location}</p>
+        <p>Experience: ${job.experience} years</p>
+        <p>Skills: ${job.skills.join(', ')}</p>
+      </div>
+    `;
+  });
+
+  jobList.innerHTML = jobListings.join('');
+});
+
+// Sample findJobs function (you'll need to implement this)
+function findJobs(skills, location, experience) {
+  // Return an array of job objects that match the search criteria
+  return [
+    {
+      title: 'Software Engineer',
+      company: 'Google',
+      location: 'New York',
+      experience: 2,
+      skills: ['JavaScript', 'HTML', 'CSS']
+    },
+    {
+      title: 'Data Scientist',
+      company: 'Microsoft',
+      location: 'London',
+      experience: 3,
+      skills: ['Python', 'R', 'SQL']
+    },
+    // ...
+  ];
+}
+    </script>
+</body>
+</html>

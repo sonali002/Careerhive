@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOTIFICATIONS</title>
+  
+  <style>
+    nav {
+      position: sticky;
+  top: 0;
+  display: flex;
+  font-size: 20px;
+  justify-content:end;
+    align-items: center;
+ 
+  padding: 20px;
+  color:white;
+  background-color: #050237; /* Header background color */
+  border-bottom: 1px solid #ccc;
+  transition: padding 0.5s; /* Add transition effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+nav h1{
+  justify-content:left;
+  margin-right:600px ;
+ 
+}
+nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+}
+    nav a{
+      align-items: end;
+      margin-left: 20px;
+  text-decoration: none;
+  color: #fff; /* White text color for better contrast */
+  transition: font-size 0.5s; /* Add transition effect */
+  font-weight: bold; /* Bold font weight for emphasis */
+    }
+  h3{
+  Font-weight: bold;
+  color: #050237;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+
+nav  a:hover {
+  transform: scale(1.1); /* Add animation effect */
+  transition: transform 0.5s; /* Add transition effect */
+  background-color: #333; /* Dark background color on hover */
+  color: #fff; /* White text color on hover */
+  border-radius: 5px; /* Add subtle border radius */
+  padding: 5px 10px; /* Add padding for better look */
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+ nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 5px;
+  }
+
+  nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  nav {
+    padding: 3px;
+  }
+
+  nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* For landscape orientation on smaller devices */
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  nav {
+    padding: 5px;
+  }
+
+ nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+/* For portrait orientation on smaller devices */
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  nav {
+    padding: 3px;
+  }
+
+ nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* Font styling */
+
+nav a {
+  font-family: Arial, sans-serif; /* Font family */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  transition: padding 0.5s;
+    box-shadow: 0 2px 4px rgb(248, 246, 246);
+  background-color: transparent; /* Underline on hover */
+} 
+    
+    /* Style the container */
+    .container {
+      display:inline-flex;
+      margin:1px;
+      height: 100vh;
+      width: 33%;
+      background-color:#050237;
+    }
+
+    /* Style the notification panel */
+    #notification-panel {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 800px;
+      margin: 20px;
+      overflow-y: auto; /* Add scrollbar for long list */
+    }
+
+    /* Style the notification list */
+    #notification-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #notification-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    #notification-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Style the notification text */
+    .notification-text {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Style the notification link */
+    .notification-link {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    .notification-link:hover {
+      color: #3e8e41;
+    }
+
+    /* Animation effect */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1 class="navbar-brand">Career Hive</h1>
+        <a class="nav-link active" href="index.html">HOME</a>
+        <a class="nav-link" href="aboutus.html">ABOUT US</a>
+        <a class="nav-link" href="e learning\index.html">E-LEARNING</a>
+        <a class="nav-link" href="updates.html">NOTIFICATION</a>
+        <a class="nav-link" href="company.html">COMPANY</a>
+        
+      </nav>
+      <div class="container">
+        <div id="notification-panel">
+          <h2>LATEST JOBS</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Job 1: Software Engineer</h3>
+              <p>Company: Google</p>
+              <p>Location: New York, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are looking for a skilled software engineer to join our team.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 2: Data Scientist</h3>
+              <p>Company: Microsoft</p>
+              <p>Location: Seattle, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are seeking a data scientist to analyze and interpret complex data.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 3: Marketing Manager</h3>
+              <p>Company: Amazon</p>
+              <p>Location: London, UK</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are looking for a marketing manager to lead our marketing team.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 4: Product Manager</h3>
+              <p>Company: Facebook</p>
+              <p>Location: San Francisco, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are seeking a product manager to lead our product development team.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 5: Cyber Security Specialist</h3>
+              <p>Company: IBM</p>
+              <p>Location: Washington D.C., USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are looking for a cyber security specialist to protect our systems from cyber threats.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 6: Human Resources Generalist</h3>
+              <p>Company: Apple</p>
+              <p>Location: Cupertino, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are seeking a human resources generalist to support our HR team.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 7: Financial Analyst</h3>
+              <p>Company: Goldman Sachs</p>
+              <p>Location: New York, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are looking for a financial analyst to analyze and interpret financial data.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 8: Operations Manager</h3>
+              <p>Company: Amazon</p>
+              <p>Location: Seattle, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are seeking an operations manager to lead our operations team.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 9: Research Scientist</h3>
+              <p>Company: NASA</p>
+              <p>Location: Houston, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are looking for a research scientist to conduct research and development.</p>
+              <button>Apply Now</button>
+            </li>
+            <li>
+              <h3>Job 10: Graphic Designer</h3>
+              <p>Company: Adobe</p>
+              <p>Location: San Jose, USA</p>
+              <p>Job Type: Full-time</p>
+              <p>Description: We are seeking a graphic designer to create visual designs for our products.</p>
+              <button>Apply Now</button>
+            </li>
+            <!-- Add more job listings here -->
+          </ul>
+        </div>
+      </div>
+<div class="container">
+  <div id="notification-panel">
+    <h2>INTERNSHIPS</h2>
+    <ul id="notification-list">
+      <li>
+        <h3>Internship 1: Software Engineering</h3>
+        <p>Company: Google</p>
+        <p>Location: New York, USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: This internship is for students pursuing a degree in Computer Science or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 2: Data Science</h3>
+        <p>Company: Microsoft</p>
+        <p>Location: Seattle, USA</p>
+        <p>Duration: 6 months</p>
+        <p>Description: This internship is for students pursuing a degree in Data Science or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 3: Marketing</h3>
+        <p>Company: Amazon</p>
+        <p>Location: London, UK</p>
+        <p>Duration: 3 months</p>
+        <p>Description: This internship is for students pursuing a degree in Marketing or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 4: Product Management</h3>
+        <p>Company: Facebook</p>
+        <p>Location: San Francisco, USA</p>
+        <p>Duration: 6 months</p>
+        <p>Description: This internship is for students pursuing a degree in Business or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 5: Cyber Security</h3>
+        <p>Company: IBM</p>
+        <p>Location: Washington D.C., USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: This internship is for students pursuing a degree in Computer Science or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 6: Human Resources</h3>
+        <p>Company: Apple</p>
+        <p>Location: Cupertino, USA</p>
+        <p>Duration: 6 months</p>
+        <p>Description: This internship is for students pursuing a degree in Human Resources or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 7: Finance</h3>
+        <p>Company: Goldman Sachs</p>
+        <p>Location: New York, USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: This internship is for students pursuing a degree in Finance or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 8: Operations</h3>
+        <p>Company: Amazon</p>
+        <p>Location: Seattle, USA</p>
+        <p>Duration: 6 months</p>
+        <p>Description: This internship is for students pursuing a degree in Operations or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 9: Research and Development</h3>
+        <p>Company: NASA</p>
+        <p>Location: Houston, USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: This internship is for students pursuing a degree in Engineering or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <li>
+        <h3>Internship 10: Graphic Design</h3>
+        <p>Company: Adobe</p>
+        <p>Location: San Jose, USA</p>
+        <p>Duration: 6 months</p>
+        <p>Description: This internship is for students pursuing a degree in Graphic Design or related fields.</p>
+        <button>Apply Now</button>
+      </li>
+      <!-- Add more internship listings here -->
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div id="notification-panel">
+    <h2>TRAININGS</h2>
+    <ul id="notification-list">
+      <li>
+        <h3>Training 1: Python Programming</h3>
+        <p>Instructor: John Doe</p>
+        <p>Location: Online</p>
+        <p>Duration: 3 months</p>
+        <p>Description: Learn the basics of Python programming.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 2: Data Analysis</h3>
+        <p>Instructor: Jane Smith</p>
+        <p>Location: New York, USA</p>
+        <p>Duration: 2 months</p>
+        <p>Description: Learn data analysis techniques using Excel and Python.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 3: Digital Marketing</h3>
+        <p>Instructor: Bob Johnson</p>
+        <p>Location: London, UK</p>
+        <p>Duration: 4 months</p>
+        <p>Description: Learn digital marketing strategies and techniques.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 4: Cyber Security</h3>
+        <p>Instructor: Alice Brown</p>
+        <p>Location: Washington D.C., USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: Learn cyber security best practices and techniques.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 5: Leadership Development</h3>
+        <p>Instructor: Mike Davis</p>
+        <p>Location: San Francisco, USA</p>
+        <p>Duration: 2 months</p>
+        <p>Description: Learn leadership development skills and strategies.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 6: Graphic Design</h3>
+        <p>Instructor: Emily Chen</p>
+        <p>Location: Online</p>
+        <p>Duration: 4 months</p>
+        <p>Description: Learn graphic design principles and techniques.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 7: Project Management</h3>
+        <p>Instructor: Tom Harris</p>
+        <p>Location: Chicago, USA</p>
+        <p>Duration: 3 months</p>
+        <p>Description: Learn project management skills and techniques.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 8: Communication Skills</h3>
+        <p>Instructor: Sarah Lee</p>
+        <p>Location: Online</p>
+        <p>Duration: 2 months</p>
+        <p>Description: Learn effective communication skills and strategies.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 9: Time Management</h3>
+        <p>Instructor: David Kim</p>
+        <p>Location: Seoul, South Korea</p>
+        <p>Duration: 3 months</p>
+        <p>Description: Learn time management skills and techniques.</p>
+        <button>Enroll Now</button>
+      </li>
+      <li>
+        <h3>Training 10: Team Building</h3>
+        <p>Instructor: Rachel Patel</p>
+        <p>Location: Mumbai, India</p>
+        <p>Duration: 4 months</p>
+        <p>Description: Learn team building skills and strategies.</p>
+        <button>Enroll Now</button>
+      </li>
+      <!-- Add more training listings here -->
+    </ul>
+  </div>
+</div>
+</body>
+</html>

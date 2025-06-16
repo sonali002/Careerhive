@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Hive - About Us</title>
+    <style>
+         nav {
+            position: sticky;
+  top: 0;
+  display: flex;
+  font-size: 20px;
+  justify-content:end;
+    align-items: center;
+ 
+  padding: 20px;
+  color:white;
+  background-color: #050237; /* Header background color */
+  border-bottom: 1px solid #ccc;
+  transition: padding 0.5s; /* Add transition effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+nav h1{
+  justify-content:left;
+  margin-right:600px ;
+ 
+}
+nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+}
+    nav a{
+      align-items: end;
+      margin-left: 20px;
+  text-decoration: none;
+  color: #fff; /* White text color for better contrast */
+  transition: font-size 0.5s; /* Add transition effect */
+  font-weight: bold; /* Bold font weight for emphasis */
+    }
+  h3{
+  Font-weight: bold;
+  color: #050237;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+
+nav  a:hover {
+  transform: scale(1.1); /* Add animation effect */
+  transition: transform 0.5s; /* Add transition effect */
+  background-color: #333; /* Dark background color on hover */
+  color: #fff; /* White text color on hover */
+  border-radius: 5px; /* Add subtle border radius */
+  padding: 5px 10px; /* Add padding for better look */
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+ nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 5px;
+  }
+
+  nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  nav {
+    padding: 3px;
+  }
+
+  nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* For landscape orientation on smaller devices */
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  nav {
+    padding: 5px;
+  }
+
+ nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+/* For portrait orientation on smaller devices */
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  nav {
+    padding: 3px;
+  }
+
+ nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* Font styling */
+
+nav a {
+  font-family: Arial, sans-serif; /* Font family */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  transition: padding 0.5s;
+    box-shadow: 0 2px 4px rgb(248, 246, 246);
+  background-color: transparent; /* Underline on hover */
+} 
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color:  #050237;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        a:hover {
+            color: #23527c;
+        }
+        /* Header Styles */
+        header {
+            background-color: #f7f7f7;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        nav li {
+            margin-right: 20px;
+        }
+        /* Main Styles */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .about-us {
+            background-size: cover;
+            background-position: center;
+            height: 120px;
+           
+            color: black;
+        }
+        .our-story, .our-services, .our-values, .our-team {
+            padding: 40px;
+        }
+        .our-services ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .our-services li {
+            width: 30%;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        .our-values ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .our-values li {
+            width: 30%;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .team-member {
+            width: 30%;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1 class="navbar-brand">Career Hive</h1>
+            <a class="nav-link active" href="index.html">HOME</a>
+            <a class="nav-link" href="aboutus.html">ABOUT US</a>
+            <a class="nav-link" href="e learning\index.html">E-LEARNING</a>
+            <a class="nav-link" href="updates.html">NOTIFICATION</a>
+            <a class="nav-link" href="company.html">COMPANY</a>
+            
+          </nav>
+    
+    <main>
+        <section class="about-us">
+            <h1>About Us</h1>
+           
+            <p>Career Hive is a leading provider of staffing and recruitment solutions, dedicated to connecting job seekers with top employers. Our mission is to empower individuals to achieve their career goals and provide companies with the best talent to drive their business forward.</p>
+        </section>
+        <section class="our-story">
+            <h2>Our Story</h2>
+            <p>Founded by a team of recruitment experts, Career Hive was born out of a passion to revolutionize the way people find jobs and companies find talent. We saw an opportunity to create a platform that not only connects job seekers with employers but also provides the necessary tools and resources to help individuals succeed in their careers.</p>
+        </section>
+        <section class="our-services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>
+                    <h3>Employment Assistance Programs</h3>
+                    <p>Our programs are designed to help new immigrants settle in Canada, providing them with the necessary skills and knowledge to succeed in the Canadian job market.</p>
+                </li>
+                <li>
+                    <li>
+                        <h3>E-Learning Courses</h3>
+                        <p>Our courses are designed to enhance job seekers' skills and knowledge, making them more competitive in the job market.</p>
+                    </li>
+                    <li>
+                        <h3>Staffing and Recruitment Solutions</h3>
+                        <p>We connect employers with top talent, providing them with the best candidates for their job openings.</p>
+                    </li>
+                    <li>
+                        <h3>Career Coaching</h3>
+                        <p>Our team of expert career coaches provide personalized guidance and support to help job seekers achieve their career goals.</p>
+                    </li>
+                    <li>
+                        <h3>Resume Building</h3>
+                        <p>Our team of experts help job seekers create professional resumes that showcase their skills and experience.</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="our-values">
+                <h2>Our Values</h2>
+                <ul>
+                    <li>
+                        <h3>Innovation</h3>
+                        <p>We strive to stay ahead of the curve, using the latest technology and trends to deliver innovative solutions.</p>
+                    </li>
+                    <li>
+                        <h3>Excellence</h3>
+                        <p>We are committed to delivering exceptional service and exceeding our clients' expectations.</p>
+                    </li>
+                    <li>
+                        <h3>Integrity</h3>
+                        <p>We operate with transparency, honesty, and integrity in all our interactions.</p>
+                    </li>
+                    <li>
+                        <h3>Diversity</h3>
+                        <p>We celebrate diversity and promote inclusivity in all aspects of our business.</p>
+                    </li>
+                    <li>
+                        <h3>Community</h3>
+                        <p>We believe in giving back to the community, providing resources and support to those who need it most.</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="our-team">
+                <h2>Our Team</h2>
+                <p>Our team of experts is dedicated to providing personalized support and guidance to job seekers and employers. With years of experience in the recruitment industry, our team is well-equipped to understand the needs of our clients and deliver tailored solutions.</p>
+                <div class="team-members">
+                    <div class="team-member">
+                        <h3>ABC, CEO</h3>
+                        <p>ABC has over 10 years of experience in the recruitment industry, with a passion for innovation and excellence.</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>ABC, Career Coach</h3>
+                        <p>ABC has over 5 years of experience as a career coach, with a passion for helping job seekers achieve their career goals.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    </html>

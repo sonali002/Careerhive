@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>career hive</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+  <div class="header navbar navbar-expand-lg navbar-light bg-light">
+    <h1 class="navbar-brand">Career Hive</h1>
+  
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="header-right navbar-nav ml-auto">
+        <a class="nav-link active" href="index.html">HOME</a>
+        <a class="nav-link" href="aboutus.html">ABOUT US</a>
+        <a class="nav-link" href="e learning\index.html">E-LEARNING</a>
+        <a class="nav-link" href="updates.html">NOTIFICATION</a>
+        <a class="nav-link" href="company.html">COMPANY</a>
+        <button id="contact-btn">Get in Touch</button>
+        
+        
+<!-- Add this code to your existing HTML structure -->
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="container" style="padding-left: 20px">
+    <h1>Welcome To Career Hive</h1>
+    <h3> "Transform your career in a community that cares. At Career Hive, we're dedicated to helping you unlock your full potential and achieve your dreams. With personalized career assessments, expert advice, and a wealth of resources at your fingertips, you'll be unstoppable. Join our vibrant community today and start building the career you've always wanted!"</h3>
+    <a href="loginpage.html">
+      <button class="btn btn-primary btn-lg get-started">
+        Get Started <i class="fas fa-arrow-right"></i>
+      </button>
+    </a>
+  </div>
+  <div>
+   
+
+    <!-- Modal HTML -->
+    <div id="contact-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h4>Get in Touch</h4>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br><br>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea><br><br>
+          <button id="send-btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <script>
+    // Get the modal and button elements
+    var modal = document.getElementById("contact-modal");
+    var btn = document.getElementById("contact-btn");
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the button is clicked, show the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+   <!-- The slider container -->
+<!-- The slider container -->
+<div class="slider">
+  <!-- Slider images -->
+  <div class="slide">
+    <img src="slider1.jpg" alt="Image 1">
+  </div>
+  <div class="slide">
+    <img src="slider2.jpg" alt="Image 2">
+  </div>
+  <div class="slide">
+    <img src="slider3.jpg" alt="Image 3">
+  </div>
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- The dots container (optional) -->
+<div class="dots">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<!-- JavaScript code -->
+<script>
+  let slideIndex = 1;
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    if (dots.length > 0) {
+      dots[slideIndex - 1].className += " active";
+    }
+  }
+
+  // Initialize the slider
+  showSlides(slideIndex);
+</script>
+<div>
+  <div class="chatbot">
+    
+    <a href="chatbot.html"><img src="bot.png" height="250px" width="150px" ></a>
+  </div>
+</div>
+<style>
+  .container1-row {
+  display: flex;
+}
+
+
+.container1 {
+  width: 25%;
+  height: 150px; /* adjust the width as needed */
+  margin: 10px;
+  border:1px solid rgb(221, 218, 218)  ;
+  /* adjust the margin as needed */
+  transition: all 0.3s ease-in-out; /* add transition effect */
+}
+
+.container1:hover {
+  background-color: #d0cbcb; /* change background color on hover */
+  transform: scale(1.05); /* add scale effect on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add box shadow on hover */
+}
+</style>
+<br><br><br>
+<div class="container1-row">
+  <div class="container1">
+    <h3>RESUME GENERATOR</h3>
+    <a href="resume.html" >resume building</a>
+
+    <br>
+  </div>
+  <div class="container1">
+    <h3>
+      ATS SCORE CHECKER
+    </h3>
+    <a href="ats.html" >ats score checker</a>
+     </div>
+  <div class="container1">
+    <h3>
+      COMPANY MODULE
+    </h3>
+    <a href="company container.html">company module</a>
+  </div>
+  <div class="container1">
+    <h3>
+      JOB MATCHING
+    </h3>
+    <a href="Job matching.html">Job matching</a>
+
+  </div>
+</div>
+<div class="container1-row">
+  <div class="container1">
+    <h3>
+      INDUSTRY TRENDS
+    </h3>
+    <a href="industrytrends.html">industry trends</a>
+  </div>
+  <div class="container1">
+    <h3>
+      INTERVIEW SCHEDULING
+    </h3>
+    <a href="scheduling.html">interview scheduling</a>
+  </div>
+  <div class="container1">
+    <h3>
+      SKILL ASSESSMENT
+    </h3>
+    <a href="skillAssess.html">skill assessment</a>
+  </div>
+  <div class="container1">
+    <h3>
+      FEEDBACK
+    </h3>
+    <a href="feedback.html">feedback</a>
+  </div>
+</div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4>About Us</h4>
+            <p>Career Hive is a platform that connects individuals with job and internship opportunities, helping them gain practical experience and launch their careers. That's a great resource for students, recent graduates, and professionals looking to transition into new roles.</p>
+          <br><br>
+          <footer>
+            <p>&copy; 2024 Career Hive. All rights reserved.</p>
+        </footer>
+          </div>
+          <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <h4>Stay Connected</h4>
+                  <ul>
+                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+          
+        
+</body>
+</html>

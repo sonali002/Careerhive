@@ -1,0 +1,254 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Companies</title>
+  
+</head>
+<body>
+    <style>
+         nav {
+            position: sticky;
+  top: 0;
+  display: flex;
+  font-size: 20px;
+  justify-content:end;
+    align-items: center;
+ 
+  padding: 20px;
+  color:white;
+  background-color: #050237; /* Header background color */
+  border-bottom: 1px solid #ccc;
+  transition: padding 0.5s; /* Add transition effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+nav h1{
+  justify-content:left;
+  margin-right:600px ;
+ 
+}
+nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+}
+    nav a{
+      align-items: end;
+      margin-left: 20px;
+  text-decoration: none;
+  color: #fff; /* White text color for better contrast */
+  transition: font-size 0.5s; /* Add transition effect */
+  font-weight: bold; /* Bold font weight for emphasis */
+    }
+  h3{
+  Font-weight: bold;
+  color: #050237;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+
+nav  a:hover {
+  transform: scale(1.1); /* Add animation effect */
+  transition: transform 0.5s; /* Add transition effect */
+  background-color: #333; /* Dark background color on hover */
+  color: #fff; /* White text color on hover */
+  border-radius: 5px; /* Add subtle border radius */
+  padding: 5px 10px; /* Add padding for better look */
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+ nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 5px;
+  }
+
+  nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  nav {
+    padding: 3px;
+  }
+
+  nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* For landscape orientation on smaller devices */
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  nav {
+    padding: 5px;
+  }
+
+ nav a {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+
+/* For portrait orientation on smaller devices */
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  nav {
+    padding: 3px;
+  }
+
+ nav a {
+    font-size: 10px; /* Adjust font size */
+  }
+}
+
+/* Font styling */
+
+nav a {
+  font-family: Arial, sans-serif; /* Font family */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  transition: padding 0.5s;
+    box-shadow: 0 2px 4px rgb(248, 246, 246);
+  background-color: transparent; /* Underline on hover */
+} 
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.company-container {
+    margin: 20px;
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.company-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.company-link {
+    text-decoration: none;
+    color: #337ab7;
+}
+    </style>
+      <nav>
+        <h1 class="navbar-brand">Career Hive</h1>
+            <a class="nav-link active" href="index.html">HOME</a>
+            <a class="nav-link" href="aboutus.html">ABOUT US</a>
+            <a class="nav-link" href="e learning\index.html">E-LEARNING</a>
+            <a class="nav-link" href="updates.html">NOTIFICATION</a>
+            <a class="nav-link" href="company.html">COMPANY</a>
+            
+          </nav>
+    <div class="container">
+        <!-- 20 company containers will be generated here -->
+    </div>
+    <script>
+        // script.js
+
+// Company data
+const companies = [
+    { name: "Google", logo: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png", website: "https://www.google.com" },
+    { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png", website: "https://www.microsoft.com" },
+    { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/1024px-Amazon_icon.svg.png", website: "https://www.amazon.com" },
+    { name: "Facebook", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png", website: "https://www.facebook.com" },
+    { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1024px-Apple_logo_black.svg.png", website: "https://www.apple.com" },
+    { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1024px-IBM_logo.svg.png", website: "https://www.ibm.com" },
+    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Oracle_logo.svg/1024px-Oracle_logo.svg.png", website: "https://www.oracle.com" },
+    { name: "SAP", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SAP_2011_logo.svg/1024px-SAP_2011_logo.svg.png", website: "https://www.sap.com" },
+    { name: "Cisco", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cisco_logo.svg/1024px-Cisco_logo.svg.png", website: "https://www.cisco.com" },
+    { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dell_Logo.svg/1024px-Dell_Logo.svg.png", website: "https://www.dell.com" },
+    { name: "HP", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/HP_Logo_2010.svg/1024px-HP_Logo_2010.svg.png", website: "https://www.hp.com" },
+    { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Intel_logo_%282006%29.svg/1024px-Intel_logo_%282006%29.svg.png", website: "https://www.intel.com" },
+    { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/1024px-Nvidia_logo.svg.png", website: "https://www.nvidia.com" },
+    { name: "VMware", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/VMware_logo.svg/1024px-VMware_logo.svg.png", website: "https://www.vmware.com" },
+    { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Accenture_logo.svg/1024px-Accenture_logo.svg.png", website: "https://www.accenture.com" },
+    { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/TCS_logo.svg/1024px-TCS_logo.svg.png", website: "https://www.tcs.com" },
+    { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Infosys_logo.svg/1024px-Infosys_logo.svg.png", website: "https://www.infosys.com" },
+    { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wipro_logo.svg/1024px-Wipro_logo.svg.png", website: "https://www.wipro.com" },
+    { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/HCL_Technologies_logo.svg/1024px-HCL_Technologies_logo.svg.png", website: "https://www.hcl.com" },
+    { name: "Capgemini", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Capgemini_logo.svg/1024px-Capgemini_logo.svg.png", website: "https://www.capgemini.com" },
+    { name: "DXC Technology", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/DXC_Technology_logo.svg/1024px-DXC_Technology_logo.svg.png", website: "https://www.dxc.technology" },
+    { name: "Atos", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Atos_logo.svg/1024px-Atos_logo.svg.png", website: "https://www.atos.net" },
+    { name: "Fujitsu", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Fujitsu_logo.svg/1024px-Fujitsu_logo.svg.png", website: "https://www.fujitsu.com" },
+    { name: "Hitachi", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Hitachi_logo.svg/1024px-Hitachi_logo.svg.png", website: "https://www.hitachi.com" },
+    { name: "NEC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/NEC_logo.svg/1024px-NEC_logo.svg.png", website: "https://www.nec.com" },
+    { name: "Tata Consultancy Services", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/TCS_logo.svg/1024px-TCS_logo.svg.png", website: "https://www.tcs.com" },
+    { name: "Unisys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Unisys_logo.svg/1024px-Unisys_logo.svg.png", website: "https://www.unisys.com" },
+    { name: "CGI", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/CGI_logo.svg/1024px-CGI_logo.svg.png", website: "https://www.cgi.com" },
+    { name: "NTT Data", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/NTT_Data_logo.svg/1024px-NTT_Data_logo.svg.png", website: "https://www.nttdata.com" }
+];
+
+
+// Generate company containers
+companies.forEach(company => {
+    const companyContainer = document.createElement("div");
+    companyContainer.className = "company-container";
+
+    const logo = document.createElement("img");
+    logo.src = company.logo;
+    logo.className = "company-logo";
+    companyContainer.appendChild(logo);
+
+    const name = document.createElement("p");
+    name.textContent = company.name;
+    name.className = "company-name";
+    companyContainer.appendChild(name);
+
+    const link = document.createElement("a");
+    link.href = company.website;
+    link.textContent = "Visit Website";
+    link.className = "company-link";
+    companyContainer.appendChild(link);
+
+    document.querySelector(".container").appendChild(companyContainer);
+});
+    </script>
+</body>
+</html>

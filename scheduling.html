@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Container</title>
+</head>
+<body>
+    <style>
+ * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+    margin-top: 15px;
+  display: flex;
+  background: #F7F7F7;
+  min-height: 80vh;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.monthly-container {
+  background:white;
+  width: 800px;
+  height: 700px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.monthly-header {
+  display: flex;
+  justify-content:left;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.monthly-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.monthly-dates {
+  list-style: none;
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.monthly-dates li {
+  width: calc(100% / 7);
+  font-size: 1.5rem;
+  color: #414141;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.monthly-dates li:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.monthly-dates li .date {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.monthly-dates li .vacant-slots {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.monthly-dates li .booked-slots {
+  font-size: 1.2rem;
+  color: #f00;
+}
+
+.monthly-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.monthly-navigation span {
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  user-select: none;
+  color: #aeabab;
+  font-size: 1.9rem;
+}
+
+.monthly-navigation span:hover {
+  background: #f2f2f2;
+}
+
+.monthly-current-date {
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+    </style>
+  <div class="monthly-container">
+    <header>
+      <div class="monthly-navigation">
+        <span>&#60;</span>
+        <span>&#62;</span>
+      </div>
+      <div class="monthly-current-date"></div>
+    </header>
+    <div class="monthly-body">
+      <ul class="monthly-dates"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Define the vacant slots and booked slots per day
+const vacantSlotsPerDay = 10;
+const bookedSlotsPerDay = {};
+
+// Define the current date
+let currentDate = new Date();
+
+// Define the current month and year
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
+
+// Define the days of the week
+const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+// Define the months of the year
+const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+// Get the monthly container
+const monthlyContainer = document.querySelector('.monthly-container');
+
+// Get the monthly navigation elements
+const monthlyNavigation = document.querySelector('.monthly-navigation');
+const prevMonthButton = monthlyNavigation.querySelector('span:first-child');
+const nextMonthButton = monthlyNavigation.querySelector('span:last-child');
+
+// Get the monthly current date element
+const monthlyCurrentDate = document.querySelector('.monthly-current-date');
+
+// Get the monthly body element
+const monthlyBody = document.querySelector('.monthly-body');
+
+// Get the monthly dates element
+const monthlyDates = monthlyBody.querySelector('.monthly-dates');
+
+// Function to render the monthly container
+function renderMonthlyContainer() {
+  // Clear the monthly dates element
+  monthlyDates.innerHTML = '';
+
+  // Get the first day of the month
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+
+  // Get the last day of the month
+  const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+
+  // Get the number of days in the month
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  // Render the days of the month
+  for (let i = 1; i <= daysInMonth; i++) {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <span class="date">${i}</span>
+      <span class="vacant-slots">Vacant: ${vacantSlotsPerDay}</span>
+      <span class="booked-slots">Booked: ${bookedSlotsPerDay[i] || 0}</span>
+    `;
+    monthlyDates.appendChild(li);
+  }
+
+  // Update the monthly current date element
+  monthlyCurrentDate.textContent = `${monthsOfYear[currentMonth]} ${currentYear}`;
+}
+
+// Function to handle the previous month button click
+function handlePrevMonthButtonClick() {
+  // Decrement the current month
+  currentMonth--;
+
+  // If the current month is less than 0, set it to 11 and decrement the current year
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+
+  // Render the monthly container
+  renderMonthlyContainer();
+}
+
+// Function to handle the next month button click
+function handleNextMonthButtonClick() {
+  // Increment the current month
+  currentMonth++;
+
+  // If the current month is greater than 11, set it to 0 and increment the current year
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+
+  // Render the monthly container
+  renderMonthlyContainer();
+}
+
+// Add event listeners to the previous month button and next month button
+prevMonthButton.addEventListener('click', handlePrevMonthButtonClick);
+nextMonthButton.addEventListener('click', handleNextMonthButtonClick);
+
+// Render the monthly container
+renderMonthlyContainer();
+  </script>
+</body>
+</html>

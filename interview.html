@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Preparation</title>
+ 
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#interview-prep {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#interview-prep-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#get-questions-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#get-questions-btn:hover {
+    background-color: #3e8e41;
+}
+
+#questions-list {
+    margin-top: 20px;
+}
+
+.question-listing {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.question-listing h2 {
+    margin-top: 0;
+}
+    </style>
+    <header>
+        <h1>Interview Preparation</h1>
+    </header>
+    <main>
+        <section id="interview-prep">
+            <h2>Prepare for Your Interview</h2>
+            <form id="interview-prep-form">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="">Select a category</option>
+                    <option value="aptitude">Aptitude</option>
+                    <option value="soft-skills">Soft Skills</option>
+                    <option value="technical-skills">Technical Skills</option>
+                </select>
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="">Select a difficulty level</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="get-questions-btn">Get Questions</button>
+            </form>
+            <div id="questions-list"></div>
+        </section>
+    </main>
+    <script>
+        const form = document.getElementById('interview-prep-form');
+const questionsList = document.getElementById('questions-list');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const category = document.getElementById('category').value;
+  const difficulty = document.getElementById('difficulty').value;
+
+  const questions = getQuestions(category, difficulty);
+
+  const questionListings = questions.map(question => {
+    return `
+      <div class="question-listing">
+        <h2>${question.title}</h2>
+        <p>Question: ${question.question}</p>
+        <p>Answer: ${question.answer}</p>
+        <p>Difficulty: ${question.difficulty}</p>
+        <p>Category: ${question.category}</p>
+      </div>
+    `;
+  });
+
+  questionsList.innerHTML = questionListings.join('');
+});
+
+// Sample getQuestions function (you'll need to implement this)
+function getQuestions(category, difficulty) {
+  // Return an array of question objects that match the search criteria
+  return [
+    {
+      title: 'Aptitude Question 1',
+      question: 'What is the sum of 2+2?',
+      answer: '4',
+      difficulty: 'Easy',
+      category: 'Aptitude'
+    },
+    {
+      title: 'Soft Skills Question 1',
+      question: 'How would you handle a difficult customer?',
+      answer: 'I would listen to their concerns and try to resolve the issue in a professional manner.',
+      difficulty: 'Medium',
+      category: 'Soft Skills'
+    },
+    {
+      title: 'Technical Skills Question 1',
+      question: 'What is the difference between var, let, and const in JavaScript?',
+      answer: 'Var is function-scoped, let and const are block-scoped.',
+      difficulty: 'Hard',
+      category: 'Technical Skills'
+    },
+    {
+    title: 'Aptitude Question 1',
+    question: 'What is the next number in the series: 2, 4, 8, 16, ?',
+    answer: '32',
+    difficulty: 'Easy',
+    category: 'Aptitude'
+  },
+  {
+    title: 'Aptitude Question 2',
+    question: 'A snail is at the bottom of a 20-foot well. Each day, it climbs up 3 feet, but at night, it slips back 2 feet. How many days will it take for the snail to reach the top of the well?',
+    answer: '18 days',
+    difficulty: 'Medium',
+    category: 'Aptitude'
+  },
+  {
+    title: 'Soft Skills Question 1',
+    question: 'How would you handle a difficult team member?',
+    answer: 'I would listen to their concerns and try to resolve the issue in a professional manner.',
+    difficulty: 'Medium',
+    category: 'Soft Skills'
+  },
+  {
+    title: 'Soft Skills Question 2',
+    question: 'What are some strategies for effective time management?',
+    answer: 'Prioritize tasks, set deadlines, and avoid multitasking.',
+    difficulty: 'Easy',
+    category: 'Soft Skills'
+  },
+  {
+    title: 'Technical Skills Question 1',
+    question: 'What is the difference between var, let, and const in JavaScript?',
+    answer: 'Var is function-scoped, let and const are block-scoped.',
+    difficulty: 'Hard',
+    category: 'Technical Skills'
+  },
+  {
+    title: 'Technical Skills Question 2',
+    question: 'What is the purpose of the "this" keyword in JavaScript?',
+    answer: 'The "this" keyword refers to the current object being executed.',
+    difficulty: 'Medium',
+    category: 'Technical Skills'
+  },
+  {
+    title: 'Technical Skills Question 3',
+    question: 'How do you handle errors in JavaScript?',
+    answer: 'Using try-catch blocks and error handling mechanisms.',
+    difficulty: 'Hard',
+    category: 'Technical Skills'
+  },
+  {
+    title: 'Aptitude Question 3',
+    question: 'A bat and a ball together cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?',
+    answer: '5 cents',
+    difficulty: 'Medium',
+    category: 'Aptitude'
+  },
+  {
+    title: 'Soft Skills Question 3',
+    question: 'How do you prioritize tasks when faced with multiple deadlines?',
+    answer: 'By evaluating the urgency and importance of each task and focusing on the most critical ones first.',
+    difficulty: 'Easy',
+    category: 'Soft Skills'
+  },
+    // ...
+  ];
+}
+    </script>
+</body>
+</html>

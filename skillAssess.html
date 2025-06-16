@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Assessment Test</title>
+    
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+section {
+    background-color: #f7f7f7;
+    padding: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.questions {
+    margin-top: 2em;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+input[type="radio"] {
+    margin-right: 1em;
+}
+
+.result {
+    margin-top: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+    </style>
+    <nav>
+        <a href="#aptitude">Aptitude</a>
+        <a href="#technical">Technical</a>
+        <a href="#soft-skills">Soft Skills</a>
+    </nav>
+    <main>
+        <section id="aptitude">
+            <h2>Aptitude Questions</h2>
+            <div class="questions"></div>
+        </section>
+        <section id="technical">
+            <h2>Technical Questions</h2>
+            <div class="questions"></div>
+        </section>
+        <section id="soft-skills">
+            <h2>Soft Skills Questions</h2>
+            <div class="questions"></div>
+        </section>
+        <button type="submit">Submit</button>
+        <div class="result"></div>
+    </main>
+    <script>
+        // Add event listeners to navigation links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        const sectionId = link.getAttribute('href').replace('#', '');
+        document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Aptitude Questions
+const aptitudeQuestions = [
+    {
+        question: "What is your greatest strength and weakness?",
+        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        correctAnswer: 0
+    },
+    {
+        question: "Why do you want to work for Career Hive?",
+        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        correctAnswer: 1
+    },
+    {
+        question: "How do you handle stress in the workplace?",
+        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        correctAnswer: 2
+    }
+];
+
+// Technical Questions
+const technicalQuestions = [
+    {
+        question: "What is the difference between HTML and HTML5?",
+        answers: ["HTML is older", "HTML5 is newer", "HTML5 is more secure"],
+        correctAnswer: 1
+    },
+    {
+        question: "How do you implement a responsive design in CSS?",
+        answers: ["Use media queries", "Use flexbox", "Use grid"],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the purpose of the `this` keyword in JavaScript?",
+        answers: ["To refer to the global object", "To refer to the current object", "To refer to the parent object"],
+        correctAnswer: 1
+    }
+];
+
+// Soft Skills Questions
+const softSkillsQuestions = [
+    {
+        question: "Can you give an example of a time when you had to work with a difficult team member?",
+        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        correctAnswer: 0
+    },
+    {
+        question: "How do you handle feedback or constructive criticism?",
+        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        correctAnswer: 1
+    }
+];
+
+// Function to render questions and answers
+function renderQuestions(questions, sectionId) {
+    const section = document.getElementById(sectionId);
+    const questionContainer = section.querySelector('.questions');
+    questions.forEach((question, index) => {
+        const questionHTML = `
+            <h3>${question.question}</h3>
+            <ul>
+                ${question.answers.map((answer, i) => `<li><input type="radio" name="question-${index}" value="${i}"> ${answer}</li>`).join('')}
+            </ul>
+        `;
+        questionContainer.innerHTML += questionHTML;
+    });
+}
+
+// Render questions for each section
+renderQuestions(aptitudeQuestions, 'aptitude');
+renderQuestions(technicalQuestions, 'technical');
+renderQuestions(softSkillsQuestions, 'soft-skills');
+
+// Add event listener to submit button
+document.querySelector('button[type="submit"]').addEventListener('click', event => {
+    event.preventDefault();
+    const userAnswers = {};
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const questionContainer = section.querySelector('.questions');
+        const questions = questionContainer.querySelectorAll('ul');
+        questions.forEach((question, index) => {
+            const answer = question.querySelector('input[type="radio"]:checked');
+            if (answer) {
+                userAnswers[`${section.id}-${index}`] = parseInt(answer.value);
+            }
+        });
+    });
+    const score = calculateScore(userAnswers, aptitudeQuestions, technicalQuestions, softSkillsQuestions);
+    displayResult(score);
+});
+
+// Function to calculate score
+function calculateScore(userAnswers, aptitudeQuestions, technicalQuestions, softSkillsQuestions) {
+    let score = 0;
+    Object.keys(userAnswers).forEach(key => {
+        const sectionId = key.split('-')[0];
+        const questionIndex = parseInt(key.split('-')[1]);
+        if (sectionId === 'aptitude') {
+            if (userAnswers[key] === aptitudeQuestions[questionIndex].correctAnswer) {
+                score++;
+            }
+        } else if (sectionId === 'technical') {
+            if (userAnswers[key] === technicalQuestions[questionIndex].correctAnswer) {
+                score++;
+            }
+        } else if (sectionId === 'soft-skills') {
+            if (userAnswers[key] === softSkillsQuestions[questionIndex].correctAnswer) {
+                score++;
+            }
+        }
+    });
+    return score;
+}
+
+// Function to display result
+function displayResult(score) {
+    const resultContainer = document.querySelector('.result');
+    const totalQuestions = aptitudeQuestions.length + technicalQuestions.length + softSkillsQuestions.length;
+    const percentage = (score / totalQuestions) * 100;
+    resultContainer.innerHTML = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(2)}%)`;
+}
+    </script>
+</body>
+</html>
